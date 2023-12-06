@@ -1,7 +1,7 @@
-package com.thiagogonzalez.filahovet.features.room.model;
+package com.thiagogonzalez.filahovet.model;
 
-import com.thiagogonzalez.filahovet.features.queue.model.Queue;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "room")
-@Getter @Setter @NoArgsConstructor
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
