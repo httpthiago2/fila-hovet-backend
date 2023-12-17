@@ -31,14 +31,21 @@ public class RoomController {
     }
 
     @PutMapping
-    public RoomDTO updateRoom(@RequestBody RoomDTO dto) throws Exception{
+    public RoomDTO updateRoom(@RequestBody RoomDTO dto){
         return service.updateRoom(dto);
     }
 
     @DeleteMapping(
             value = "/{id}"
     )
-    public RoomDTO deleteRoom(@PathVariable("id") Long id) throws Exception{
+    public RoomDTO deleteRoom(@PathVariable("id") Long id){
         return service.deleteRoom(id);
+    }
+
+    @GetMapping(
+            value = "/{id}"
+    )
+    public RoomDTO findById(@PathVariable Long id){
+        return service.getRoomById(id);
     }
 }
