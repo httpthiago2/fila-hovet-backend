@@ -3,7 +3,6 @@ package com.thiagogonzalez.filahovet.controller;
 import com.thiagogonzalez.filahovet.model.dto.CreateRoomDTO;
 import com.thiagogonzalez.filahovet.model.dto.RoomDTO;
 import com.thiagogonzalez.filahovet.service.RoomService;
-import com.thiagogonzalez.filahovet.service.RoomServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

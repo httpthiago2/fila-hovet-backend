@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "queue")
@@ -21,13 +23,18 @@ public class Queue {
     private String name;
 
     @Column(name = "creation_date")
-    private LocalDate creationDate;
+    private LocalDateTime creationDate;
 
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
-    private QueueStatusEnum statusFilaEnum;
+    private QueueStatusEnum queueStatusEnum;
 
     @ManyToOne
     @JoinColumn(name = "room_id")
     private Room room;
+
+    @OneToMany(mappedBy = "queue")
+    private List<MedicalRecord> medicalRecords;
+
+    private String userCode;
 }
