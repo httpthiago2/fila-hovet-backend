@@ -1,11 +1,14 @@
 package com.thiagogonzalez.filahovet.controller;
 
 import com.thiagogonzalez.filahovet.model.dto.CreateRoomDTO;
+import com.thiagogonzalez.filahovet.model.dto.ResponseObject;
 import com.thiagogonzalez.filahovet.model.dto.RoomDTO;
-import com.thiagogonzalez.filahovet.service.RoomService;
+import com.thiagogonzalez.filahovet.service.interfaces.RoomService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.time.LocalDateTime;
 
 
 @CrossOrigin(value = "http://localhost:3000")
@@ -20,31 +23,56 @@ public class RoomController {
     }
 
     @GetMapping()
-    public List<RoomDTO> findAll() {
-        return service.getAllRooms();
+    public ResponseEntity<ResponseObject> findAll() {
+
+        return new ResponseEntity<>(new ResponseObject(
+                "success",
+                "Salas encontradas com sucesso",
+                LocalDateTime.now(), service.getAllRooms()),
+                HttpStatus.OK);
     }
 
     @PostMapping
-    public RoomDTO createRoom(@RequestBody CreateRoomDTO dto) {
-        return service.createRoom(dto);
+    public ResponseEntity<ResponseObject> createRoom(@RequestBody CreateRoomDTO dto) {
+        return new ResponseEntity<>(new ResponseObject(
+                "success",
+                "Sala criada com sucesso",
+                LocalDateTime.now(), service.createRoom(dto)
+        ),
+                HttpStatus.CREATED);
     }
 
     @PutMapping
-    public RoomDTO updateRoom(@RequestBody RoomDTO dto){
-        return service.updateRoom(dto);
+    public ResponseEntity<ResponseObject> updateRoom(@RequestBody RoomDTO dto) {
+        return new ResponseEntity<>(new ResponseObject(
+                "success",
+                "Sala atualizada com sucesso",
+                LocalDateTime.now(), service.updateRoom(dto)
+        ),
+                HttpStatus.OK);
     }
 
     @DeleteMapping(
             value = "/{id}"
     )
-    public RoomDTO deleteRoom(@PathVariable("id") Long id){
-        return service.deleteRoom(id);
+    public ResponseEntity<ResponseObject> deleteRoom(@PathVariable("id") Long id) {
+        return new ResponseEntity<>(new ResponseObject(
+                "success",
+                "Sala Deletada com sucesso",
+                LocalDateTime.now(), service.deleteRoom(id)
+        ),
+                HttpStatus.OK);
     }
 
     @GetMapping(
             value = "/{id}"
     )
-    public RoomDTO findById(@PathVariable Long id){
-        return service.getRoomById(id);
+    public ResponseEntity<ResponseObject> findById(@PathVariable Long id) {
+        return new ResponseEntity<>(new ResponseObject(
+                "success",
+                "Sala Encontrada com sucesso",
+                LocalDateTime.now(), service.getRoomById(id)
+        ),
+                HttpStatus.OK);
     }
 }
