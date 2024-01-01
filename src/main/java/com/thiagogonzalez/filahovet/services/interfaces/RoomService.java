@@ -1,7 +1,7 @@
-package com.thiagogonzalez.filahovet.service.interfaces;
+package com.thiagogonzalez.filahovet.services.interfaces;
 
-import com.thiagogonzalez.filahovet.model.dto.CreateRoomDTO;
-import com.thiagogonzalez.filahovet.model.dto.RoomDTO;
+import com.thiagogonzalez.filahovet.domain.dto.CreateRoomDTO;
+import com.thiagogonzalez.filahovet.domain.dto.RoomDTO;
 
 import java.util.List;
 

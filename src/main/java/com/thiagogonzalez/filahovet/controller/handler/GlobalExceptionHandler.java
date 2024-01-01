@@ -1,7 +1,7 @@
-package com.thiagogonzalez.filahovet.handler;
+package com.thiagogonzalez.filahovet.controller.handler;
 
-import com.thiagogonzalez.filahovet.exception.ResourceNotFoundException;
-import com.thiagogonzalez.filahovet.model.exception.ExceptionResponse;
+import com.thiagogonzalez.filahovet.domain.exception.ResourceNotFoundException;
+import com.thiagogonzalez.filahovet.domain.dto.ExceptionResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

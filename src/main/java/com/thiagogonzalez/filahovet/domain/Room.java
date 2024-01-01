@@ -1,4 +1,4 @@
-package com.thiagogonzalez.filahovet.model;
+package com.thiagogonzalez.filahovet.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

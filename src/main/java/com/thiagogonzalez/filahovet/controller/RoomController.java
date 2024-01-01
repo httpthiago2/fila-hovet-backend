@@ -1,9 +1,9 @@
 package com.thiagogonzalez.filahovet.controller;
 
-import com.thiagogonzalez.filahovet.model.dto.CreateRoomDTO;
-import com.thiagogonzalez.filahovet.model.dto.ResponseObject;
-import com.thiagogonzalez.filahovet.model.dto.RoomDTO;
-import com.thiagogonzalez.filahovet.service.interfaces.RoomService;
+import com.thiagogonzalez.filahovet.domain.dto.CreateRoomDTO;
+import com.thiagogonzalez.filahovet.domain.dto.ResponseObject;
+import com.thiagogonzalez.filahovet.domain.dto.RoomDTO;
+import com.thiagogonzalez.filahovet.services.interfaces.RoomService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

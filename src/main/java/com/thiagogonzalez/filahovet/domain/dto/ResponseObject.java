@@ -1,4 +1,4 @@
-package com.thiagogonzalez.filahovet.model.dto;
+package com.thiagogonzalez.filahovet.domain.dto;
 
 import java.time.LocalDateTime;
 

@@ -1,4 +1,4 @@
-package com.thiagogonzalez.filahovet.exception;
+package com.thiagogonzalez.filahovet.domain.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

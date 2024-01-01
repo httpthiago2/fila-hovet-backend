@@ -1,11 +1,11 @@
-package com.thiagogonzalez.filahovet.service.implementations;
+package com.thiagogonzalez.filahovet.services.implementations;
 
-import com.thiagogonzalez.filahovet.exception.ResourceNotFoundException;
+import com.thiagogonzalez.filahovet.domain.exception.ResourceNotFoundException;
 import com.thiagogonzalez.filahovet.mapper.UserMapper;
-import com.thiagogonzalez.filahovet.model.User;
-import com.thiagogonzalez.filahovet.model.dto.UserDTO;
-import com.thiagogonzalez.filahovet.repository.UserRepository;
-import com.thiagogonzalez.filahovet.service.interfaces.UserService;
+import com.thiagogonzalez.filahovet.domain.User;
+import com.thiagogonzalez.filahovet.domain.dto.UserDTO;
+import com.thiagogonzalez.filahovet.repositories.UserRepository;
+import com.thiagogonzalez.filahovet.services.interfaces.UserService;
 import com.thiagogonzalez.filahovet.utils.AppUtils;
 import org.springframework.stereotype.Service;
 

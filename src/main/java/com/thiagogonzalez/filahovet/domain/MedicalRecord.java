@@ -1,7 +1,7 @@
-package com.thiagogonzalez.filahovet.model;
+package com.thiagogonzalez.filahovet.domain;
 
-import com.thiagogonzalez.filahovet.enums.GenderEnum;
-import com.thiagogonzalez.filahovet.enums.SpeciesEnum;
+import com.thiagogonzalez.filahovet.domain.enums.GenderEnum;
+import com.thiagogonzalez.filahovet.domain.enums.SpeciesEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

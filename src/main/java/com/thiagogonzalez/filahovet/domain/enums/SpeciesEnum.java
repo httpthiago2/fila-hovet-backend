@@ -1,4 +1,4 @@
-package com.thiagogonzalez.filahovet.enums;
+package com.thiagogonzalez.filahovet.domain.enums;
 
 import lombok.Getter;
 

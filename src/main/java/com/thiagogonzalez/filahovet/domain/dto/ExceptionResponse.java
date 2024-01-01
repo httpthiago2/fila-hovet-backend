@@ -1,4 +1,4 @@
-package com.thiagogonzalez.filahovet.model.exception;
+package com.thiagogonzalez.filahovet.domain.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

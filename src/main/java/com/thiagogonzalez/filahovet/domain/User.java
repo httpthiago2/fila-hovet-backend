@@ -1,6 +1,6 @@
-package com.thiagogonzalez.filahovet.model;
+package com.thiagogonzalez.filahovet.domain;
 
-import com.thiagogonzalez.filahovet.enums.ProfileTypeEnum;
+import com.thiagogonzalez.filahovet.domain.enums.ProfileTypeEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

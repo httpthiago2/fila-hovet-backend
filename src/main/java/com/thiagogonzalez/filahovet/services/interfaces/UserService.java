@@ -1,6 +1,6 @@
-package com.thiagogonzalez.filahovet.service.interfaces;
+package com.thiagogonzalez.filahovet.services.interfaces;
 
-import com.thiagogonzalez.filahovet.model.dto.UserDTO;
+import com.thiagogonzalez.filahovet.domain.dto.UserDTO;
 
 import java.util.List;
 

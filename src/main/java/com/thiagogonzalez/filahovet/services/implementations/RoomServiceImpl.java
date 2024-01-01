@@ -1,12 +1,12 @@
-package com.thiagogonzalez.filahovet.service.implementations;
+package com.thiagogonzalez.filahovet.services.implementations;
 
-import com.thiagogonzalez.filahovet.exception.ResourceNotFoundException;
+import com.thiagogonzalez.filahovet.domain.exception.ResourceNotFoundException;
 import com.thiagogonzalez.filahovet.mapper.RoomMapper;
-import com.thiagogonzalez.filahovet.model.Room;
-import com.thiagogonzalez.filahovet.model.dto.CreateRoomDTO;
-import com.thiagogonzalez.filahovet.model.dto.RoomDTO;
-import com.thiagogonzalez.filahovet.repository.RoomRepository;
-import com.thiagogonzalez.filahovet.service.interfaces.RoomService;
+import com.thiagogonzalez.filahovet.domain.Room;
+import com.thiagogonzalez.filahovet.domain.dto.CreateRoomDTO;
+import com.thiagogonzalez.filahovet.domain.dto.RoomDTO;
+import com.thiagogonzalez.filahovet.repositories.RoomRepository;
+import com.thiagogonzalez.filahovet.services.interfaces.RoomService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

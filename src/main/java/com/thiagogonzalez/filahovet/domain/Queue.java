@@ -1,13 +1,11 @@
-package com.thiagogonzalez.filahovet.model;
+package com.thiagogonzalez.filahovet.domain;
 
-import com.thiagogonzalez.filahovet.enums.QueueStatusEnum;
-import com.thiagogonzalez.filahovet.model.Room;
+import com.thiagogonzalez.filahovet.domain.enums.QueueStatusEnum;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 

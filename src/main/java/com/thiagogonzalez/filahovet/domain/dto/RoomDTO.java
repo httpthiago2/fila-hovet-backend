@@ -1,3 +1,3 @@
-package com.thiagogonzalez.filahovet.model.dto;
+package com.thiagogonzalez.filahovet.domain.dto;
 
 public record RoomDTO(Long id,  String name) { }

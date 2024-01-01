@@ -1,6 +1,6 @@
-package com.thiagogonzalez.filahovet.model.dto;
+package com.thiagogonzalez.filahovet.domain.dto;
 
-import com.thiagogonzalez.filahovet.enums.ProfileTypeEnum;
+import com.thiagogonzalez.filahovet.domain.enums.ProfileTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

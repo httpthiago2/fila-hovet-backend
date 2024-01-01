@@ -1,6 +1,6 @@
-package com.thiagogonzalez.filahovet.repository;
+package com.thiagogonzalez.filahovet.repositories;
 
-import com.thiagogonzalez.filahovet.model.Room;
+import com.thiagogonzalez.filahovet.domain.Room;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
