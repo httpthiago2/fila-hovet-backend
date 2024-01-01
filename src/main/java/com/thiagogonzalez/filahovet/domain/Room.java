@@ -9,7 +9,7 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-@Table(name = "room")
+@Table(name = "TB_ROOM")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class Room {
     @Id

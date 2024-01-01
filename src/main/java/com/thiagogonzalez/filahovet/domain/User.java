@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+@Table(name = "TB_USER")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class User {
     @Id
@@ -16,6 +17,6 @@ public class User {
     private String name;
     private String userName;
     private String password;
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private ProfileTypeEnum profileTypeEnum;
 }

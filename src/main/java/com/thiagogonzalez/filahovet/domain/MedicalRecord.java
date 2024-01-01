@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "TB_MEDICAL_RECORD")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class MedicalRecord {
     @Id

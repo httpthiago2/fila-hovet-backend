@@ -2,6 +2,7 @@ package com.thiagogonzalez.filahovet.domain;
 
 import com.thiagogonzalez.filahovet.domain.enums.QueueStatusEnum;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,8 +11,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "queue")
-@Getter @Setter @NoArgsConstructor
+@Table(name = "TB_QUEUE")
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class Queue {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
