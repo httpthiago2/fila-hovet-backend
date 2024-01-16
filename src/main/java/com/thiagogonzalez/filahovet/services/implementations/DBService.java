@@ -1,9 +1,9 @@
 package com.thiagogonzalez.filahovet.services.implementations;
 
-import com.thiagogonzalez.filahovet.domain.MedicalRecord;
-import com.thiagogonzalez.filahovet.domain.Queue;
-import com.thiagogonzalez.filahovet.domain.Room;
-import com.thiagogonzalez.filahovet.domain.User;
+import com.thiagogonzalez.filahovet.domain.entities.MedicalRecord;
+import com.thiagogonzalez.filahovet.domain.entities.Queue;
+import com.thiagogonzalez.filahovet.domain.entities.Room;
+import com.thiagogonzalez.filahovet.domain.entities.User;
 import com.thiagogonzalez.filahovet.domain.enums.GenderEnum;
 import com.thiagogonzalez.filahovet.domain.enums.ProfileTypeEnum;
 import com.thiagogonzalez.filahovet.domain.enums.QueueStatusEnum;
@@ -16,8 +16,6 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.List;
 
 @Service
 public class DBService {
@@ -38,7 +36,7 @@ public class DBService {
     public boolean initializeDb() {
         User user = new User(null, "Thiago Gonzalez", "teagokkk", "123", ProfileTypeEnum.SECRETARY);
         Room room = new Room(null, "Sala 01", null);
-        Queue queue = new Queue(null, "Fila 01/01/2024", LocalDateTime.now(), QueueStatusEnum.OPEN, room, null, "teagokkk");
+        Queue queue = new Queue("Fila 01/01/2024", QueueStatusEnum.OPEN, room, null, "teagokkk");
         MedicalRecord medicalRecord = new MedicalRecord(null, "Tito", "Thiago Gonzalez", new BigDecimal("5"), LocalDateTime.now(), "Verme na barriga", SpeciesEnum.FELINE, GenderEnum.MALE, queue);
         userRepository.save(user);
         roomRepository.save(room);
