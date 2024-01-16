@@ -2,7 +2,7 @@ package com.thiagogonzalez.filahovet.services.implementations;
 
 import com.thiagogonzalez.filahovet.domain.exception.ResourceNotFoundException;
 import com.thiagogonzalez.filahovet.mapper.RoomMapper;
-import com.thiagogonzalez.filahovet.domain.Room;
+import com.thiagogonzalez.filahovet.domain.entities.Room;
 import com.thiagogonzalez.filahovet.domain.dto.CreateRoomDTO;
 import com.thiagogonzalez.filahovet.domain.dto.RoomDTO;
 import com.thiagogonzalez.filahovet.repositories.RoomRepository;

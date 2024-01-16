@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 
 
-@CrossOrigin(value = "http://localhost:3000")
+@CrossOrigin(value = "*")
 @RestController
 @RequestMapping("/room")
 public class RoomController {

@@ -2,7 +2,7 @@ package com.thiagogonzalez.filahovet.services.implementations;
 
 import com.thiagogonzalez.filahovet.domain.exception.ResourceNotFoundException;
 import com.thiagogonzalez.filahovet.mapper.UserMapper;
-import com.thiagogonzalez.filahovet.domain.User;
+import com.thiagogonzalez.filahovet.domain.entities.User;
 import com.thiagogonzalez.filahovet.domain.dto.UserDTO;
 import com.thiagogonzalez.filahovet.repositories.UserRepository;
 import com.thiagogonzalez.filahovet.services.interfaces.UserService;

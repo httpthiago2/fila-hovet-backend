@@ -1,6 +1,6 @@
 package com.thiagogonzalez.filahovet.mapper;
 
-import com.thiagogonzalez.filahovet.domain.Room;
+import com.thiagogonzalez.filahovet.domain.entities.Room;
 import com.thiagogonzalez.filahovet.domain.dto.CreateRoomDTO;
 import com.thiagogonzalez.filahovet.domain.dto.RoomDTO;
 import org.mapstruct.Mapper;
