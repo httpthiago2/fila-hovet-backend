@@ -4,10 +4,7 @@ import com.thiagogonzalez.filahovet.domain.entities.MedicalRecord;
 import com.thiagogonzalez.filahovet.domain.entities.Queue;
 import com.thiagogonzalez.filahovet.domain.entities.Room;
 import com.thiagogonzalez.filahovet.domain.entities.User;
-import com.thiagogonzalez.filahovet.domain.enums.GenderEnum;
-import com.thiagogonzalez.filahovet.domain.enums.ProfileTypeEnum;
-import com.thiagogonzalez.filahovet.domain.enums.QueueStatusEnum;
-import com.thiagogonzalez.filahovet.domain.enums.SpeciesEnum;
+import com.thiagogonzalez.filahovet.domain.enums.*;
 import com.thiagogonzalez.filahovet.repositories.MedicalRecordRepository;
 import com.thiagogonzalez.filahovet.repositories.QueueRepository;
 import com.thiagogonzalez.filahovet.repositories.RoomRepository;
@@ -39,15 +36,15 @@ public class DBService {
 
     public boolean initializeDb() {
         List<MedicalRecord> lista = new ArrayList<>();
-        User user = new User(null, "Thiago Gonzalez", "teagokkk", "123", ProfileTypeEnum.SECRETARY);
+        User user = new User(null, "Thiago Gonzalez", "teagokkk", "123", ProfileTypeEnum.DOCTOR, null);
         Room room = new Room(null, "Sala 01", null);
-        MedicalRecord medicalRecord = new MedicalRecord(null, "Tito", "Thiago Gonzalez", new BigDecimal("5"), LocalDateTime.now(), "Verme na barriga", SpeciesEnum.FELINE, GenderEnum.MALE, null);
+        MedicalRecord medicalRecord = new MedicalRecord(null, "Tito", "Thiago Gonzalez", new BigDecimal("5"), LocalDateTime.now(), "Verme na barriga", SpeciesEnum.FELINE, GenderEnum.MALE, null, 1, MedicalRecordStatusEnum.ATTENDED);
         lista.add(medicalRecord);
-        MedicalRecord medicalRecord2 = new MedicalRecord(null, "Tito2", "Thiago Gonzalez", new BigDecimal("5"), LocalDateTime.now(), "Verme na barriga", SpeciesEnum.FELINE, GenderEnum.MALE, null);
+        MedicalRecord medicalRecord2 = new MedicalRecord(null, "Tito2", "Thiago Gonzalez", new BigDecimal("5"), LocalDateTime.now(), "Verme na barriga", SpeciesEnum.FELINE, GenderEnum.MALE, null, 2, MedicalRecordStatusEnum.PENDING);
         lista.add(medicalRecord2);
-        MedicalRecord medicalRecord3 = new MedicalRecord(null, "Tito3", "Thiago Gonzalez", new BigDecimal("5"), LocalDateTime.now(), "Verme na barriga", SpeciesEnum.FELINE, GenderEnum.MALE, null);
+        MedicalRecord medicalRecord3 = new MedicalRecord(null, "Tito3", "Thiago Gonzalez", new BigDecimal("5"), LocalDateTime.now(), "Verme na barriga", SpeciesEnum.FELINE, GenderEnum.MALE, null, 3, MedicalRecordStatusEnum.PENDING);
         lista.add(medicalRecord3);
-        Queue queue = new Queue(null, LocalDateTime.now(),"Fila 01/01/2024", QueueStatusEnum.OPEN, room, lista, "teagokkk");
+        Queue queue = new Queue(null, LocalDateTime.now(), user, "Fila 01/01/2024", QueueStatusEnum.OPEN, room, lista, "teagokkk");
         userRepository.save(user);
         roomRepository.save(room);
         queueService.create(queue);

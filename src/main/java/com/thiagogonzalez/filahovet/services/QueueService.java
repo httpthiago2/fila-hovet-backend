@@ -8,7 +8,6 @@ import com.thiagogonzalez.filahovet.domain.exception.ResourceNotFoundException;
 import com.thiagogonzalez.filahovet.repositories.MedicalRecordRepository;
 import com.thiagogonzalez.filahovet.repositories.QueueRepository;
 import jakarta.transaction.Transactional;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

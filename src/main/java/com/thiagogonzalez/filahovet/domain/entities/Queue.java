@@ -22,6 +22,10 @@ public class Queue {
 
     private LocalDateTime dataCriacao = LocalDateTime.now();
 
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
+    private User doctor;
+
     @Column(name = "name")
     private String name;
 
@@ -38,4 +42,5 @@ public class Queue {
     private List<MedicalRecord> medicalRecords;
 
     private String userCode;
+
 }

@@ -6,6 +6,7 @@ import com.thiagogonzalez.filahovet.domain.entities.Room;
 import com.thiagogonzalez.filahovet.domain.dto.CreateRoomDTO;
 import com.thiagogonzalez.filahovet.domain.dto.RoomDTO;
 import com.thiagogonzalez.filahovet.repositories.RoomRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,37 +22,34 @@ public class RoomService {
     }
 
 
-    public List<RoomDTO> getAllRooms() {
+    public List<Room> getAllRooms() {
         logger.info("###Listing a room");
-        List<Room> rooms = repository.findAll();
-        return RoomMapper.INSTANCE.roomsToRoomDTOs(rooms);
+        return repository.findAll();
     }
 
-    public RoomDTO createRoom(CreateRoomDTO dto) {
+    public Room createRoom(Room room) {
         logger.info("###Creating a room");
-        Room room = repository.save(RoomMapper.INSTANCE.createRoomDTOtoRoom(dto));
-        return RoomMapper.INSTANCE.roomToRoomDTO(room);
+        return repository.save(room);
     }
 
-    public RoomDTO updateRoom(RoomDTO dto) {
-        if (!repository.existsById(dto.id())) {
-            throw new ResourceNotFoundException("There are no rooms for id: " + dto.id());
-        }
-        return RoomMapper.INSTANCE.roomToRoomDTO(
-                repository.save(RoomMapper.INSTANCE.roomDTOtoRoom(dto))
-        );
+    public Room updateRoom(Long id, Room newRoomData) {
+        Room existingRoom = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Sala não encontrada"));
+
+        BeanUtils.copyProperties(newRoomData, existingRoom);
+        existingRoom.setId(id);
+
+        return repository.save(existingRoom);
     }
 
-    public RoomDTO deleteRoom(Long id) {
+    public Room deleteRoom(Long id) {
         logger.info("###Deleting room");
         Room roomToDelete = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("There are no rooms for id: " + id));
         repository.deleteById(id);
-        return RoomMapper.INSTANCE.roomToRoomDTO(roomToDelete);
+        return roomToDelete;
     }
 
-    public RoomDTO getRoomById(Long id) {
-        Room roomEntity = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("There are no rooms for id: " + id));
-        return RoomMapper.INSTANCE.roomToRoomDTO(roomEntity);
+    public Room getRoomById(Long id) {
+        return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("There are no rooms for id: " + id));
     }
 
 

@@ -3,6 +3,8 @@ package com.thiagogonzalez.filahovet.controller;
 import com.thiagogonzalez.filahovet.domain.dto.CreateRoomDTO;
 import com.thiagogonzalez.filahovet.domain.dto.ResponseObject;
 import com.thiagogonzalez.filahovet.domain.dto.RoomDTO;
+import com.thiagogonzalez.filahovet.domain.entities.Room;
+import com.thiagogonzalez.filahovet.mapper.RoomMapper;
 import com.thiagogonzalez.filahovet.services.RoomService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,26 +30,28 @@ public class RoomController {
         return new ResponseEntity<>(new ResponseObject(
                 "success",
                 "Salas encontradas com sucesso",
-                LocalDateTime.now(), service.getAllRooms()),
+                LocalDateTime.now(), RoomMapper.INSTANCE.roomsToRoomDTOs(service.getAllRooms())),
                 HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<ResponseObject> createRoom(@RequestBody CreateRoomDTO dto) {
+    public ResponseEntity<ResponseObject> createRoom(@RequestBody RoomDTO dto) {
+        Room roomCreated = service.createRoom(RoomMapper.INSTANCE.roomDTOtoRoom(dto));
         return new ResponseEntity<>(new ResponseObject(
                 "success",
                 "Sala criada com sucesso",
-                LocalDateTime.now(), service.createRoom(dto)
+                LocalDateTime.now(), RoomMapper.INSTANCE.roomToRoomDTO(roomCreated)
         ),
                 HttpStatus.CREATED);
     }
 
-    @PutMapping
-    public ResponseEntity<ResponseObject> updateRoom(@RequestBody RoomDTO dto) {
+    @PutMapping("/{id}")
+    public ResponseEntity<ResponseObject> updateRoom(@PathVariable("id") Long id, @RequestBody RoomDTO dto) {
+        Room roomEntityUpdated = service.updateRoom(id, RoomMapper.INSTANCE.roomDTOtoRoom(dto));
         return new ResponseEntity<>(new ResponseObject(
                 "success",
                 "Sala atualizada com sucesso",
-                LocalDateTime.now(), service.updateRoom(dto)
+                LocalDateTime.now(), RoomMapper.INSTANCE.roomToRoomDTO(roomEntityUpdated)
         ),
                 HttpStatus.OK);
     }
@@ -59,7 +63,7 @@ public class RoomController {
         return new ResponseEntity<>(new ResponseObject(
                 "success",
                 "Sala Deletada com sucesso",
-                LocalDateTime.now(), service.deleteRoom(id)
+                LocalDateTime.now(), RoomMapper.INSTANCE.roomToRoomDTO(service.deleteRoom(id))
         ),
                 HttpStatus.OK);
     }
@@ -71,7 +75,8 @@ public class RoomController {
         return new ResponseEntity<>(new ResponseObject(
                 "success",
                 "Sala Encontrada com sucesso",
-                LocalDateTime.now(), service.getRoomById(id)
+                LocalDateTime.now(),
+                RoomMapper.INSTANCE.roomToRoomDTO(service.getRoomById(id))
         ),
                 HttpStatus.OK);
     }

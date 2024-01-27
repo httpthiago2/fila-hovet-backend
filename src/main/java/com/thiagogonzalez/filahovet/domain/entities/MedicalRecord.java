@@ -3,6 +3,7 @@ package com.thiagogonzalez.filahovet.domain.entities;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.thiagogonzalez.filahovet.domain.enums.GenderEnum;
+import com.thiagogonzalez.filahovet.domain.enums.MedicalRecordStatusEnum;
 import com.thiagogonzalez.filahovet.domain.enums.SpeciesEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -42,4 +43,9 @@ public class MedicalRecord {
     @ManyToOne
     @JoinColumn(name = "queue_id")
     private Queue queue;
+
+    private Integer attendanceOrder;
+
+    @Enumerated(EnumType.STRING)
+    private MedicalRecordStatusEnum medicalRecordStatus = MedicalRecordStatusEnum.PENDING;
 }

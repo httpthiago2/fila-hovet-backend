@@ -51,7 +51,7 @@ public class QueueController {
     @PostMapping
     public ResponseEntity<ResponseObject> create(@RequestBody QueueDTO queueDTO) {
         Queue queue = QueueMapper.INSTANCE.toModel(queueDTO);
-        queue.setRoom(RoomMapper.INSTANCE.roomDTOtoRoom(roomService.getRoomById(queueDTO.getRoom().id())));
+        queue.setRoom(roomService.getRoomById(queueDTO.getRoom().id()));
         Queue queueCreated = service.create(queue);
         return new ResponseEntity<>(new ResponseObject(
                 "success",
@@ -71,6 +71,30 @@ public class QueueController {
                 "Fila atualizada com sucesso",
                 LocalDateTime.now(),
                 service.update(id, QueueMapper.INSTANCE.toModel(queueDTO))),
+                HttpStatus.OK
+        );
+    }
+
+    @PutMapping("/open-queue/{id}")
+    public ResponseEntity<ResponseObject> openQueue(@PathVariable("id") Long id) {
+        return new ResponseEntity<>(new ResponseObject(
+                "success",
+                "Fila atualizada com sucesso",
+                LocalDateTime.now(),
+                QueueMapper.INSTANCE.fromModel(service.openQueue(id))
+        ),
+                HttpStatus.OK
+        );
+    }
+
+    @PutMapping("/close-queue/{id}")
+    public ResponseEntity<ResponseObject> closeQueue(@PathVariable("id") Long id) {
+        return new ResponseEntity<>(new ResponseObject(
+                "success",
+                "Fila atualizada com sucesso",
+                LocalDateTime.now(),
+                QueueMapper.INSTANCE.fromModel(service.closeQueue(id))
+        ),
                 HttpStatus.OK
         );
     }

@@ -23,6 +23,7 @@ public class MedicalRecordService {
     public MedicalRecord update(Long id, MedicalRecord record) {
         MedicalRecord existingRecord = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Prontuário não encontrado"));
         BeanUtils.copyProperties(record, existingRecord);
+        existingRecord.setId(id);
         return repository.save(existingRecord);
     }
 

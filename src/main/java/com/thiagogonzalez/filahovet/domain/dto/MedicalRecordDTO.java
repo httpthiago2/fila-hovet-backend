@@ -1,6 +1,7 @@
 package com.thiagogonzalez.filahovet.domain.dto;
 
 import com.thiagogonzalez.filahovet.domain.enums.GenderEnum;
+import com.thiagogonzalez.filahovet.domain.enums.MedicalRecordStatusEnum;
 import com.thiagogonzalez.filahovet.domain.enums.SpeciesEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,4 +21,6 @@ public class MedicalRecordDTO {
     String complaint;
     SpeciesEnum species;
     GenderEnum gender;
+    Integer attendanceOrder;
+    MedicalRecordStatusEnum medicalRecordStatus;
 }
