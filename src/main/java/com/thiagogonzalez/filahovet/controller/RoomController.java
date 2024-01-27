@@ -3,7 +3,7 @@ package com.thiagogonzalez.filahovet.controller;
 import com.thiagogonzalez.filahovet.domain.dto.CreateRoomDTO;
 import com.thiagogonzalez.filahovet.domain.dto.ResponseObject;
 import com.thiagogonzalez.filahovet.domain.dto.RoomDTO;
-import com.thiagogonzalez.filahovet.services.interfaces.RoomService;
+import com.thiagogonzalez.filahovet.services.RoomService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

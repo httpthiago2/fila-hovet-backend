@@ -12,28 +12,12 @@ import org.springframework.beans.BeanUtils;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Getter @Setter @NoArgsConstructor
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class QueueDTO {
     private Long id;
+    private String name;
     private QueueStatusEnum queueStatus;
     private RoomDTO room;
     private List<MedicalRecordDTO> medicalRecords;
     private String userCode;
-
-    public QueueDTO(Queue queue, String userCode) {
-        this.id = queue.getId();
-        this.queueStatus = queue.getQueueStatus();
-        BeanUtils.copyProperties(queue.getRoom(), this.room);
-        this.medicalRecords = queue.getMedicalRecords().stream().map(record -> new MedicalRecordDTO(
-                record.getId(),
-                record.getPetName(),
-                record.getTutor(),
-                record.getWeight(),
-                record.getRegisterDate(),
-                record.getComplaint(),
-                record.getSpecies(),
-                record.getGender()
-        )).collect(Collectors.toList());
-        this.userCode = userCode;
-    }
 }

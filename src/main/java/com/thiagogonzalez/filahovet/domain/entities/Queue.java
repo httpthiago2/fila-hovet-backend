@@ -14,7 +14,14 @@ import java.util.List;
 @Entity
 @Table(name = "TB_QUEUE")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
-public class Queue extends AbstractEntity {
+public class Queue {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private LocalDateTime dataCriacao = LocalDateTime.now();
+
     @Column(name = "name")
     private String name;
 

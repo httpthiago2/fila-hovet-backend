@@ -10,6 +10,7 @@ import java.util.Date;
 @Getter @Setter @AllArgsConstructor @NoArgsConstructor
 public class ExceptionResponse {
     private Date timeStamp;
+    private String title;
     private String message;
     private String details;
 }

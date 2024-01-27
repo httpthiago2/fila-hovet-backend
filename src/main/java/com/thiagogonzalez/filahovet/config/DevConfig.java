@@ -1,6 +1,6 @@
 package com.thiagogonzalez.filahovet.config;
 
-import com.thiagogonzalez.filahovet.services.implementations.DBService;
+import com.thiagogonzalez.filahovet.services.DBService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;

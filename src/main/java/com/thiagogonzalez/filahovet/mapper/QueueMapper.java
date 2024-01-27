@@ -14,6 +14,6 @@ public interface QueueMapper {
     QueueMapper INSTANCE = Mappers.getMapper( QueueMapper.class );
 
     QueueDTO fromModel(Queue model);
-    User toModel(UserDTO dto);
-    List<UserDTO> fromModelList(List<User> listModel);
+    Queue toModel(QueueDTO dto);
+    List<QueueDTO> fromModelList(List<Queue> listModel);
 }

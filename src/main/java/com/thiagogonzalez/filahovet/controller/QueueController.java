@@ -1,12 +1,12 @@
 package com.thiagogonzalez.filahovet.controller;
 
-import com.thiagogonzalez.filahovet.domain.entities.MedicalRecord;
-import com.thiagogonzalez.filahovet.domain.entities.Queue;
-import com.thiagogonzalez.filahovet.domain.dto.MedicalRecordDTO;
 import com.thiagogonzalez.filahovet.domain.dto.QueueDTO;
 import com.thiagogonzalez.filahovet.domain.dto.ResponseObject;
-import com.thiagogonzalez.filahovet.mapper.MedicalRecordMapper;
-import com.thiagogonzalez.filahovet.services.implementations.QueueService;
+import com.thiagogonzalez.filahovet.domain.entities.Queue;
+import com.thiagogonzalez.filahovet.mapper.QueueMapper;
+import com.thiagogonzalez.filahovet.mapper.RoomMapper;
+import com.thiagogonzalez.filahovet.services.QueueService;
+import com.thiagogonzalez.filahovet.services.RoomService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,29 +15,62 @@ import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping("/queue")
-public class QueueController extends GenericController<Queue, QueueDTO> {
+public class QueueController {
 
 
     private final QueueService service;
+    private final RoomService roomService;
 
-    public QueueController(QueueService service) {
-        super(service, QueueDTO.class, Queue.class);
+    public QueueController(QueueService service, RoomService roomService) {
         this.service = service;
+        this.roomService = roomService;
     }
 
-    @PostMapping(
-            value = "/adicionar-registro-medico/{queueId}"
+    @GetMapping
+    public ResponseEntity<ResponseObject> findAll() {
+        return new ResponseEntity<>(new ResponseObject(
+                "success",
+                "Busca realizada com sucesso",
+                LocalDateTime.now(),
+                QueueMapper.INSTANCE.fromModelList(service.findAll())),
+                HttpStatus.OK
+        );
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ResponseObject> findById(@PathVariable("id") Long id) {
+        return new ResponseEntity<>(new ResponseObject(
+                "success",
+                "Busca realizada com sucesso",
+                LocalDateTime.now(),
+                QueueMapper.INSTANCE.fromModel(service.findById(id))),
+                HttpStatus.OK
+        );
+    }
+
+    @PostMapping
+    public ResponseEntity<ResponseObject> create(@RequestBody QueueDTO queueDTO) {
+        Queue queue = QueueMapper.INSTANCE.toModel(queueDTO);
+        queue.setRoom(RoomMapper.INSTANCE.roomDTOtoRoom(roomService.getRoomById(queueDTO.getRoom().id())));
+        Queue queueCreated = service.create(queue);
+        return new ResponseEntity<>(new ResponseObject(
+                "success",
+                "Fila criada com sucesso!",
+                LocalDateTime.now(),
+                QueueMapper.INSTANCE.fromModel(queueCreated)),
+                HttpStatus.CREATED
+        );
+    }
+
+    @PutMapping(
+            value = "/{id}"
     )
-    public ResponseEntity<ResponseObject> addMedicalRecord(@PathVariable("queueId") Long queueId,
-                                                           @RequestBody MedicalRecordDTO record) {
-        MedicalRecord entity = MedicalRecordMapper.INSTANCE.toModel(record);
-        return new ResponseEntity<>(
-                new ResponseObject(
-                        "success",
-                        "Prontuário adicionado com sucesso",
-                        LocalDateTime.now(),
-                        service.addMedicalRecord(queueId, entity)
-                ),
+    public ResponseEntity<ResponseObject> update(@PathVariable("id") Long id, @RequestBody QueueDTO queueDTO) {
+        return new ResponseEntity<>(new ResponseObject(
+                "success",
+                "Fila atualizada com sucesso",
+                LocalDateTime.now(),
+                service.update(id, QueueMapper.INSTANCE.toModel(queueDTO))),
                 HttpStatus.OK
         );
     }
