@@ -11,7 +11,6 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class QueueService {
@@ -53,7 +52,7 @@ public class QueueService {
     public Queue update(Long id, Queue newQueueData) {
         Queue existingQueue = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("A fila informada não existe"));
         // remove os prontuários que não existem mais na lista antiga
-        List<MedicalRecord> recordsToRemove = existingQueue.getMedicalRecords().stream().filter(item -> !newQueueData.getMedicalRecords().contains(item)).collect(Collectors.toList());
+        List<MedicalRecord> recordsToRemove = existingQueue.getMedicalRecords().stream().filter(item -> !newQueueData.getMedicalRecords().contains(item)).toList();
         recordsToRemove.forEach(recordToRemove -> {
             recordToRemove.setQueue(null);
             medicalRecordRepository.save(recordToRemove);
