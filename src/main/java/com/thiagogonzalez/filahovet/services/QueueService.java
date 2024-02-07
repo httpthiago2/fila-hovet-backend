@@ -71,6 +71,7 @@ public class QueueService {
         existingQueue.setName(newQueueData.getName());
         existingQueue.setRoom(newQueueData.getRoom());
         existingQueue.setQueueStatus(newQueueData.getQueueStatus());
+        existingQueue.setCode(newQueueData.getCode());
 
         return repository.save(existingQueue);
     }

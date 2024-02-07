@@ -1,12 +1,9 @@
 package com.thiagogonzalez.filahovet.mapper;
 
-import com.thiagogonzalez.filahovet.domain.entities.MedicalRecord;
 import com.thiagogonzalez.filahovet.domain.dto.MedicalRecordDTO;
-import org.mapstruct.Context;
+import com.thiagogonzalez.filahovet.domain.entities.MedicalRecord;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
-import org.modelmapper.spi.MappingContext;
 
 import java.util.List;
 
