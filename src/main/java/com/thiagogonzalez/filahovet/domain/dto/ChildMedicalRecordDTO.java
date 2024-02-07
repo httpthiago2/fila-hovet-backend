@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @AllArgsConstructor @NoArgsConstructor @Getter @Setter
-public class MedicalRecordDTO {
+public class ChildMedicalRecordDTO {
     Long id;
     String petName;
     String tutor;
@@ -24,5 +24,4 @@ public class MedicalRecordDTO {
     GenderEnum gender;
     Integer attendanceOrder;
     MedicalRecordStatusEnum medicalRecordStatus;
-    ChildQueueDTO queue;
 }

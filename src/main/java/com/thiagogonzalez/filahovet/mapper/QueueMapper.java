@@ -5,6 +5,7 @@ import com.thiagogonzalez.filahovet.domain.entities.User;
 import com.thiagogonzalez.filahovet.domain.dto.QueueDTO;
 import com.thiagogonzalez.filahovet.domain.dto.UserDTO;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;

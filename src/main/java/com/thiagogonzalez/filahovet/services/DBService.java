@@ -44,7 +44,7 @@ public class DBService {
         lista.add(medicalRecord2);
         MedicalRecord medicalRecord3 = new MedicalRecord(null, "Tito3", "Thiago Gonzalez", new BigDecimal("5"), LocalDateTime.now(), "Verme na barriga", SpeciesEnum.FELINE, GenderEnum.MALE, null, 3, MedicalRecordStatusEnum.PENDING);
         lista.add(medicalRecord3);
-        Queue queue = new Queue(null, LocalDateTime.now(), user, "Fila 01/01/2024", QueueStatusEnum.OPEN, room, lista, "teagokkk");
+        Queue queue = new Queue(null, LocalDateTime.now(), user, "Fila 01/01/2024", QueueStatusEnum.OPEN, room, lista, "RX","teagokkk");
         userRepository.save(user);
         roomRepository.save(room);
         queueService.create(queue);

@@ -41,6 +41,9 @@ public class Queue {
     @OneToMany(mappedBy = "queue")
     private List<MedicalRecord> medicalRecords;
 
+    @Column(name = "code")
+    private String code;
+
     private String userCode;
 
 }

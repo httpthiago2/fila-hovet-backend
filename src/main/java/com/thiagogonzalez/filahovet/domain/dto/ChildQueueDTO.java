@@ -14,13 +14,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
-public class QueueDTO {
+public class ChildQueueDTO {
     private Long id;
     private String name;
     private UserDTO doctor;
     private QueueStatusEnum queueStatus;
     private RoomDTO room;
-    private List<ChildMedicalRecordDTO> medicalRecords;
     private String userCode;
     private String code;
 }

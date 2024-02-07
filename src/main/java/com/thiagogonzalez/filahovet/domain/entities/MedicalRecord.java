@@ -29,7 +29,7 @@ public class MedicalRecord {
     private BigDecimal weight;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
-    private LocalDateTime registerDate;
+    private LocalDateTime registerDate = LocalDateTime.now();
 
     private String complaint;
 
